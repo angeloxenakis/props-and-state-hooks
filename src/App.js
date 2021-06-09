@@ -1,23 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import { InfoCard } from "./InfoCard.js"
+import { React, useState } from 'react'
 
 function App() {
+  // let name = "Angelo" <--- non-statefull variable
+  let [name, setName] = useState("Angelo")
+
+  const updateName = () => {
+    // name = "Super Angelo" <--- non-statefull change
+    setName("Super Angelo")
+    console.log(name)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <InfoCard name={name} updateName={updateName}/>
     </div>
   );
 }
